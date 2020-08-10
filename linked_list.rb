@@ -1,6 +1,6 @@
 class LinkedList
-  
-  
+  attr_accessor :head
+
   def initialize
    @head = nil
   end
@@ -46,6 +46,16 @@ class LinkedList
     count
   end
 
+  def tail
+    temp_node = @head
+
+    while(temp_node.next_node != nil)
+      temp_node = temp_node.next_node
+    end
+
+    temp_node
+  end
+
 end
 
 class Node
@@ -59,7 +69,6 @@ end
 
 list = LinkedList.new
 
-list.append(1)
-list.append(2)
-list.append(3)
-p list.size
+list.prepend(1)
+list.prepend(2)
+p list.tail
