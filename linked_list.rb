@@ -36,6 +36,17 @@ class LinkedList
     @head = new_node
   end
 
+  def pop
+
+    temp_node = @head
+
+    while(temp_node.next_node.next_node != nil)
+      temp_node = temp_node.next_node
+    end
+
+    temp_node.next_node = nil
+  end
+
 
   def size
 
@@ -54,7 +65,7 @@ class LinkedList
 
   def head
 
-    @head.value
+    @head
   end
 
 
@@ -66,7 +77,7 @@ class LinkedList
       temp_node = temp_node.next_node
     end
 
-    temp_node.value
+    temp_node
   end
 
 
@@ -82,15 +93,13 @@ class LinkedList
         count +=1
       end
 
-      temp_node.value
+      temp_node
 
     rescue
       "Invalid Index"
     end
   end
 end
-
-
 
 
 class Node
@@ -110,4 +119,5 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
-p list.at(3)
+list.pop
+p list
