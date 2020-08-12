@@ -89,7 +89,7 @@ class LinkedList
       temp_node
 
     rescue
-      "Invalid Index"
+      'Invalid Index'
     end
   end
 
@@ -103,6 +103,18 @@ class LinkedList
     end
 
     false
+  end
+
+  def find(value)
+    temp_node = @head
+    index = 0
+
+    while temp_node != nil
+      return index if temp_node.value == value
+      temp_node = temp_node.next_node
+      index += 1
+    end
+    nil
   end
 end
 
@@ -122,4 +134,4 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
-p list.contains?(0)
+p list.find(1)
