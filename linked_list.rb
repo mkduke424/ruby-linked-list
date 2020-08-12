@@ -1,13 +1,11 @@
 class LinkedList
 
   def initialize
-
    @head = nil
   end
 
 
   def append(value)
-
     new_node = Node.new
     new_node.value = value
 
@@ -27,7 +25,6 @@ class LinkedList
 
 
   def prepend(value)
-
     new_node = Node.new
     new_node.value = value
 
@@ -37,7 +34,6 @@ class LinkedList
   end
 
   def pop
-
     temp_node = @head
 
     while(temp_node.next_node.next_node != nil)
@@ -49,7 +45,6 @@ class LinkedList
 
 
   def size
-
     temp_node = @head
 
     count = 0
@@ -64,7 +59,6 @@ class LinkedList
 
 
   def head
-
     @head
   end
 
@@ -82,7 +76,6 @@ class LinkedList
 
 
   def at(index)
-
     begin
       temp_node = @head
 
@@ -99,6 +92,18 @@ class LinkedList
       "Invalid Index"
     end
   end
+
+
+  def contains?(value)
+    temp_node = @head
+
+    while temp_node != nil
+      return true if temp_node.value == value
+      temp_node = temp_node.next_node
+    end
+
+    false
+  end
 end
 
 
@@ -106,10 +111,8 @@ class Node
   attr_accessor :value, :next_node
 
   def initialize
-
     @value = nil
     @next_node = nil
-
   end
 end
 
@@ -119,5 +122,4 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
-list.pop
-p list
+p list.contains?(0)
