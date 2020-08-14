@@ -33,14 +33,34 @@ class LinkedList
     @head = new_node
   end
 
+  # Will include an insert_at method 
+  def insert_at(value, index)
+
+
+  end
+
+
   def pop
     temp_node = @head
 
-    while(temp_node.next_node.next_node != nil)
+    while temp_node.next_node.next_node != nil
       temp_node = temp_node.next_node
     end
 
     temp_node.next_node = nil
+  end
+
+  def to_s
+    temp_node = @head
+    
+    str = ''
+
+    while temp_node != nil
+      str += "(#{temp_node.value}) -> "
+      temp_node = temp_node.next_node
+    end
+
+    str += "nil"
   end
 
 
@@ -134,4 +154,4 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
-p list.find(1)
+p list.to_s
