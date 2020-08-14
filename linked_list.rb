@@ -33,10 +33,26 @@ class LinkedList
     @head = new_node
   end
 
-  # Will include an insert_at method 
+  
   def insert_at(value, index)
+    
+    return prepend(value) if index == 0
+    
+    insert_node = Node.new
+    insert_node.value = value
 
+    temp_node = @head
 
+    count = 0
+
+    while (count + 1) != index
+      temp_node = temp_node.next_node
+      count += 1
+    end
+
+    replaced_node = temp_node.next_node
+    temp_node.next_node = insert_node
+    insert_node.next_node = replaced_node
   end
 
 
@@ -49,6 +65,7 @@ class LinkedList
 
     temp_node.next_node = nil
   end
+
 
   def to_s
     temp_node = @head
@@ -154,4 +171,5 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
+list.insert_at(10,0)
 p list.to_s
