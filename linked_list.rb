@@ -56,6 +56,26 @@ class LinkedList
   end
 
 
+  def remove_at(index)
+    begin
+    return @head = @head.next_node if index == 0
+
+    temp_node = @head
+
+    count = 0
+
+    while count < index - 1
+      temp_node = temp_node.next_node
+      count += 1
+    end
+
+    temp_node.next_node = temp_node.next_node.next_node
+    rescue
+      "Invalid Index"
+    end
+  end
+
+
   def pop
     temp_node = @head
 
@@ -171,5 +191,4 @@ list.prepend(1)
 list.prepend(2)
 list.prepend(3)
 list.prepend(4)
-list.insert_at(10,0)
-p list.to_s
+p list.remove_at(3)
